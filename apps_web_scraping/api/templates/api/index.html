@@ -24,29 +24,33 @@
 
    <section class="experience">
    <h2>Work Experience</h2>
-   <div class="experience__left">
-      <form  action='/' method="POST">
-        <div class="form-group">
-          {% csrf_token %}
-          <!-- {{ form.as_div}}
-          {{ fieled.token_user}} -->
-          <label for="token_user">Token/key</label>
-          <input type="text" class="form-control" id="token_user"  name="token_user" value=''>
-        </div>
-        <div class="form-group">
-          <label for="adress_for_search">Adreess</label>
-          <input type="text" class="form-control" id="adress_for_search" name="adress_for_search" value=''>
-        </div>
-         <div class="form-group">
-          <label for="method_transactions">Tipy</label>
-          <input type="text" class="form-control" id="method_transactions" name="method_transactions"  value=''
-                 placeholder="Another input">
-        </div>
-         <div>
-            <button type="submit" class="btn btn-primary form-group">Submit</button>
-         </div>
-      </form>
-   </div>
+   {% if form == 'None' %}
+      <div class="experience__left">
+        <form  action='/' method="POST">
+          <div class="form-group">
+            {% csrf_token %}
+            <!-- {{ form.as_div}}
+            {{ fieled.token_user}} -->
+            <label for="token_user">Token/key</label>
+            <input type="text" class="form-control" id="token_user"  name="token_user" value=''>
+          </div>
+          <div class="form-group">
+            <label for="adress_for_search">Adreess</label>
+            <input type="text" class="form-control" id="adress_for_search" name="adress_for_search" value=''>
+          </div>
+           <div class="form-group">
+            <label for="method_transactions">Tipy</label>
+            <input type="text" class="form-control" id="method_transactions" name="method_transactions"  value=''
+                   placeholder="Another input">
+          </div>
+           <div>
+              <button type="submit" class="btn btn-primary form-group">Submit</button>
+           </div>
+        </form>
+     </div>
+     {% else %}
+      <h4>Thanks! We get your datas </h4>
+    {% endif %}
    <div class="experience__right">
 
 
