@@ -102,3 +102,4 @@ def _restart_time() -> bool:
 			return True
 	return
 
+
