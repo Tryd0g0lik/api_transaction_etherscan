@@ -3,12 +3,6 @@ from datetime import time
 import requests as regs
 from django.utils import dateformat
 
-_API = '5PNDPQY793WFZ3HMK9TC8MNYXI888P84AK'
-ADRESS = '0x118ee078c3625144e3a942566fbc84f187f8c8b6'
-_api = 'api-goerli.etherscan.io/api?module=account&action=txlistinternal&address=%s&startblock=5&endblock=99999999&page=0&offset=5&sort=asc&apikey=%s'\
-	% (ADRESS, _API)
-
-
 def _get_dataApi(
 	_adress_for_search: str,
 	_token_user: str,
@@ -20,12 +14,18 @@ def _get_dataApi(
 		_method_transactions == '':
 		api = 'https://api-goerli.etherscan.io/api?module=account&action=txlistinternal&address=%s&startblock=%s&endblock=99999999&page=1&offset=10&sort=asc&apikey=%s'\
 		% (  _token_user, _startblock, _adress_for_search,)
+
+		api = 'https://api-goerli.etherscan.io/api?module=account&action=txlistinternal&address=%s&startblock=%s&endblock=99999999&page=1&offset=10&sort=asc&apikey=%s'\
+		% (  _token_user, _startblock, _adress_for_search,)
+
 		_api_response = regs.get(api)  #  getting data
-		print("_____________")
-		print(len(_api_response.json()['result'][0]))
 		_api_response = _api_response.json()['result']
 
+		if len(_api_response) > 100: #  look the last 100 positions if the list contains more 100 positions
+			return _api_response[-99: ]
+
 		return _api_response
+
 	else:
 		...
 	return
@@ -82,9 +82,6 @@ def _reads_data_files():
 
 	return [token_user, adress_for_search, method_transactions]
 
-
-
-
 def _restart_time() -> bool:
 	from datetime import datetime
 	_time = True
@@ -104,3 +101,4 @@ def _restart_time() -> bool:
 			_time = False
 			return True
 	return
+
