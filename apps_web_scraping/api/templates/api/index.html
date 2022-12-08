@@ -24,7 +24,7 @@
 
    <section class="experience">
    <h2>Work Experience</h2>
-   {% if form == 'None' %}
+    {% if form == 'None' %}
       <div class="experience__left">
         <form  action='/' method="POST">
           <div class="form-group">
@@ -48,8 +48,43 @@
            </div>
         </form>
      </div>
-     {% else %}
+
+     {% elif form == 'True' %}
       <h4>Thanks! We get your datas </h4>
+      <div class="api">
+
+        <ul>
+          <li>
+            <div class="api__header">
+
+              {% for title in api_header %}
+                <div >
+                  {{ title }}
+                </div>
+                {% endfor %}
+
+            </div>
+          </li>
+
+        {% for dict in api_data %}
+
+        <li>
+          <div class="api__header api_value">
+
+              {% for key, value in dict.items %}
+                <div>
+
+                  {{ value }}
+                </div>
+
+
+
+              {% endfor %}
+            </div>
+          </li>
+        {% endfor %}
+        </ul>
+      </div>
     {% endif %}
    <div class="experience__right">
 

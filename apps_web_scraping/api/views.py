@@ -25,8 +25,10 @@ def get_tokenView(request):
 
 		#  get and send api data
 		api_data = _get_dataApi(token_user, adress_for_search, method_transactions, )
-
-		return render(request, 'api/index.html', context={'form': '', 'api_data': api_data})
+		api_header = dict(api_data[0]).keys()
+		print(f"api_header: {list(api_header)}")
+		return render(request, 'api/index.html', context={'form': 'True', 'api_header': list(api_header), 'api_data':
+			api_data}, )
 
 
 

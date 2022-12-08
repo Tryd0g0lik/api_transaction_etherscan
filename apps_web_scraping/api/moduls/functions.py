@@ -23,7 +23,8 @@ def _get_dataApi(
 		_api_response = regs.get(api)  #  getting data
 		print("_____________")
 		print(len(_api_response.json()['result'][0]))
-		_api_response = _api_response.json()['result'][0]
+		_api_response = _api_response.json()['result']
+
 		return _api_response
 	else:
 		...
