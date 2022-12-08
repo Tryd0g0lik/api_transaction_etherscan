@@ -19,9 +19,11 @@ def _get_dataApi(
 	if _method_transactions == 'None' or\
 		_method_transactions == '':
 		api = 'https://api-goerli.etherscan.io/api?module=account&action=txlistinternal&address=%s&startblock=%s&endblock=99999999&page=1&offset=10&sort=asc&apikey=%s'\
-		% (_startblock, _token_user, _adress_for_search,)
+		% (  _token_user, _startblock, _adress_for_search,)
 		_api_response = regs.get(api)  #  getting data
-
+		print("_____________")
+		print(len(_api_response.json()['result'][0]))
+		_api_response = _api_response.json()['result'][0]
 		return _api_response
 	else:
 		...
