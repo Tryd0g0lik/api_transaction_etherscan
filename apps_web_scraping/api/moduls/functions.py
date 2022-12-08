@@ -16,12 +16,18 @@ def _get_dataApi(
 		_method_transactions == '':
 		api = 'https://api-goerli.etherscan.io/api?module=account&action=txlistinternal&address=%s&startblock=%s&endblock=99999999&page=1&offset=10&sort=asc&apikey=%s'\
 		% (  _token_user, _startblock, _adress_for_search,)
+
+		api = 'https://api-goerli.etherscan.io/api?module=account&action=txlistinternal&address=%s&startblock=%s&endblock=99999999&page=1&offset=10&sort=asc&apikey=%s'\
+		% (  _token_user, _startblock, _adress_for_search,)
+
 		_api_response = regs.get(api)  #  getting data
-		print("_____________")
-		print(len(_api_response.json()['result'][0]))
 		_api_response = _api_response.json()['result']
 
+		if len(_api_response) > 100: #  look the last 100 positions if the list contains more 100 positions
+			return _api_response[-99: ]
+
 		return _api_response
+
 	else:
 		...
 	return
@@ -78,9 +84,6 @@ def _reads_data_files():
 
 	return [token_user, adress_for_search, method_transactions]
 
-
-
-
 def _restart_time() -> bool:
 	from datetime import datetime
 	_time = True
@@ -100,3 +103,4 @@ def _restart_time() -> bool:
 			_time = False
 			return True
 	return
+
