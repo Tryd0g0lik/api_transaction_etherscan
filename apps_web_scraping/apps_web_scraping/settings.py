@@ -37,11 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD:web_scraping/web_scraping/settings.py
-    "apps_web_scraping",
-=======
     'api'
->>>>>>> master:apps_web_scraping/apps_web_scraping/settings.py
+
 ]
 
 MIDDLEWARE = [

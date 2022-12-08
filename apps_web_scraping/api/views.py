@@ -17,7 +17,7 @@ def get_tokenView(request):
 			user_data_list = [str(token_user), str(adress_for_search), str(method_transactions)]
 		else:
 			user_data_list = [token_user, adress_for_search]
-
+		print(f"user_data_list: {user_data_list}")
 		_records_data_inFiles(user_data_list) #  records data in files
 		_read_user_data = _reads_data_files()
 

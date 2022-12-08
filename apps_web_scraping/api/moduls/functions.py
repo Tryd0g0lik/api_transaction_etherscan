@@ -28,15 +28,12 @@ def _records_data_inFiles(*args):
 	:return: Creating of one or three files *.txt
 	"""
 
-	if args[0] == True\
-		and len(args[0]) >= 1:
-		print(f"args[0]: {args[0][0]}")
+	if len(args[0]) >= 1:
 		f = open('apps_web_scraping/api/files/token.txt', 'w')
 		f.write(args[0][0])
 		f.close()
 
-	if args[0][1] == True\
-		and len(args[0]) >= 2:
+	if len(args[0]) >= 2:
 		f = open('apps_web_scraping/api/files/adress.txt', 'w')
 		f.write(args[0][1])
 		f.close()
