@@ -1,22 +1,28 @@
+from datetime import time
+
 import requests as regs
+from django.utils import dateformat
 
 _API = '5PNDPQY793WFZ3HMK9TC8MNYXI888P84AK'
 ADRESS = '0x118ee078c3625144e3a942566fbc84f187f8c8b6'
 _api = 'api-goerli.etherscan.io/api?module=account&action=txlistinternal&address=%s&startblock=5&endblock=99999999&page=0&offset=5&sort=asc&apikey=%s'\
 	% (ADRESS, _API)
 
+
 def _get_dataApi(
-	adress_for_search: str,
-	token_user: str,
-	method_transactions: str = None):
+	_adress_for_search: str,
+	_token_user: str,
+	_method_transactions: str = None,
+	_startblock: int = 0,
+	):
 
-	if method_transactions == 'None' or\
-		method_transactions == '':
-		api = 'https://api-goerli.etherscan.io/api?module=account&action=txlist&address=%s&startblock=5&endblock=99999999&page=1&offset=10&sort=asc&apikey=%s'\
-		% ( token_user, adress_for_search,)
-		api_response = regs.get(api)  #  getting data
+	if _method_transactions == 'None' or\
+		_method_transactions == '':
+		api = 'https://api-goerli.etherscan.io/api?module=account&action=txlistinternal&address=%s&startblock=%s&endblock=99999999&page=1&offset=10&sort=asc&apikey=%s'\
+		% (_startblock, _token_user, _adress_for_search,)
+		_api_response = regs.get(api)  #  getting data
 
-		return api_response
+		return _api_response
 	else:
 		...
 	return
@@ -28,15 +34,12 @@ def _records_data_inFiles(*args):
 	:return: Creating of one or three files *.txt
 	"""
 
-	if args[0] == True\
-		and len(args[0]) >= 1:
-		print(f"args[0]: {args[0][0]}")
+	if len(args[0]) >= 1:
 		f = open('apps_web_scraping/api/files/token.txt', 'w')
 		f.write(args[0][0])
 		f.close()
 
-	if args[0][1] == True\
-		and len(args[0]) >= 2:
+	if len(args[0]) >= 2:
 		f = open('apps_web_scraping/api/files/adress.txt', 'w')
 		f.write(args[0][1])
 		f.close()
@@ -75,3 +78,26 @@ def _reads_data_files():
 		if 'method' in _f_list[i]: method_transactions = str(_read_data)
 
 	return [token_user, adress_for_search, method_transactions]
+
+
+
+
+def _restart_time() -> bool:
+	from datetime import datetime
+	_time = True
+	_datetime_response = None
+
+	_datetime_response = datetime.now()
+	_start_time = (_datetime_response.time().strftime("%I:%M:%S"))
+
+	_start_time = datetime.strptime(_start_time, "%I:%M:%S").time()
+
+	while _time:
+		_now_time = None
+		_now_time_n = (datetime.now().time().strftime("%I:%M:%S"))
+		_now_time = datetime.strptime(_now_time_n, "%I:%M:%S").time()
+
+		if _now_time.second - _start_time.second == 60:
+			_time = False
+			return True
+	return
