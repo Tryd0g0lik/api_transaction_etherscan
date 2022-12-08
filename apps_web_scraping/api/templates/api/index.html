@@ -1,8 +1,12 @@
 {% extends "./basic.html "%}
 
 {% block content %}
-   
-    <div>Lorem ipsum dolor sit amet, ectetuer nonummy nibh euismod tincidunt ut laoreet  magna  laoreet  aliquam erat volutpat.</div>
+
+    <!--suppress ALL, Annotator -->notator -->
+
+
+
+<div>Lorem ipsum dolor sit amet, ectetuer nonummy nibh euismod tincidunt ut laoreet  magna  laoreet  aliquam erat volutpat.</div>
     <div>
         <ul>
             <li class="title"><h3>Name:</h3><span>Al Rayhan</span></li>
@@ -17,24 +21,25 @@
     <img src="/static/apps/img/twiter.png" alt="My photo" />
    </div>
    </section>
-   
+
    <section class="experience">
    <h2>Work Experience</h2>
    <div class="experience__left">
-      <form  action='/'>
+      <form  action='/' method="POST">
         <div class="form-group">
-          <label for="formGroupExampleInput">Token/key</label>
-          <input type="text" class="form-control" id="formGroupExampleInput"  name="token" value=''
-                 placeholder="Example input">
+          {% csrf_token %}
+          <!-- {{ form.as_div}}
+          {{ fieled.token_user}} -->
+          <label for="token_user">Token/key</label>
+          <input type="text" class="form-control" id="token_user"  name="token_user" value=''>
         </div>
         <div class="form-group">
-          <label for="formGroupExampleInput2">Adreess</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" name="key" value='' placeholder="Another
-                 input">
+          <label for="adress_for_search">Adreess</label>
+          <input type="text" class="form-control" id="adress_for_search" name="adress_for_search" value=''>
         </div>
          <div class="form-group">
-          <label for="formGroupExampleInput2">Tipy</label>
-          <input type="text" class="form-control" id="formGroupExampleInput3" name="filter"  value=''
+          <label for="method_transactions">Tipy</label>
+          <input type="text" class="form-control" id="method_transactions" name="method_transactions"  value=''
                  placeholder="Another input">
         </div>
          <div>
@@ -43,8 +48,8 @@
       </form>
    </div>
    <div class="experience__right">
-  
-   
+
+
    </div>
    </section>
    <section class="experience">
@@ -52,7 +57,7 @@
    <div class="experience__left">
     {% for expe in menu_porfolio_incidePage.education %}
         {% if forloop.counter|divisibleby:"2" == True %}
-   
+
             <ul>
                 <li class="workNme">
                     <h4>{{  expe.title }}</h4>
@@ -65,10 +70,10 @@
     {% endfor %}
    </div>
    <div class="experience__right">
-   
+
     {% for edu in menu_porfolio_incidePage.education %}
         {% if forloop.counter|divisibleby:"2" != True %}
-   
+
             <ul>
                 <li class="workNme">
                     <h4>{{  edu.title }}</h4>
@@ -81,7 +86,7 @@
     {% endfor %}
    </div>
    </section>
-   
+
    <section class="skills">
    <h2>My Skills</h2>
    <div class="dataSkills">
@@ -113,7 +118,7 @@
                 </div>
             </div>
         </li>
-   
+
     </ul>
    </div>
    <div class="dataSkills">
@@ -145,7 +150,7 @@
                 </div>
             </div>
         </li>
-   
+
     </ul>
    </div>
    </section>
@@ -166,7 +171,7 @@
             <div>
                 <input type='button'  name='button' value='Hire Me!'>
             </div>
-   
+
         </form>
     </div>
     <div class="contacts-group">
@@ -182,7 +187,7 @@
             <h3>Toll Free Call</h3>
             <div id='Location'><a href='tel:0800 234 6578'>0800 234 6578</a></div>
         </div>
-   
+
     </div>
-   
+
 {% endblock content %}
