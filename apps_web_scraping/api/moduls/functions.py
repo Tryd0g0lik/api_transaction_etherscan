@@ -3,8 +3,6 @@ from datetime import time
 import requests as regs
 from django.utils import dateformat
 
-
-
 def _get_dataApi(
 	_adress_for_search: str,
 	_token_user: str,
