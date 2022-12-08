@@ -1,0 +1,100 @@
+/* line 1, D:/OpenServer/domains/portfolio/site/cvresume-web/scss/inside.scss */
+.inside {
+  /* This's zero-style - beginning */
+  /* This's zero-style - end */
+  /* This's block header = brginning */
+  /* This's block header - end */
+  /* This's block Main - beginning */
+  /* This's block Main - end */
+}
+
+/* line 3, D:/OpenServer/domains/portfolio/site/cvresume-web/scss/inside.scss */
+.inside header {
+  padding-top: initial;
+  padding-bottom: initial;
+  height: 567px;
+  background-color: #fff;
+}
+
+/* line 17, D:/OpenServer/domains/portfolio/site/cvresume-web/scss/inside.scss */
+.inside .header {
+  background: none;
+  width: inherit;
+  min-width: 310px;
+  max-width: 750px;
+  height: inherit;
+  border-radius: initial;
+  background-color: #333333;
+}
+
+/* line 26, D:/OpenServer/domains/portfolio/site/cvresume-web/scss/inside.scss */
+.inside .header .header_file {
+  height: 450px;
+}
+
+/* line 31, D:/OpenServer/domains/portfolio/site/cvresume-web/scss/inside.scss */
+.inside .header .header_heading {
+  background-color: #3d4f59;
+  padding: 24px 0 18px 17px;
+}
+
+/* line 35, D:/OpenServer/domains/portfolio/site/cvresume-web/scss/inside.scss */
+.inside .header .header_heading h1, .inside .header .header_heading h2 {
+  text-align: left;
+}
+
+/* line 39, D:/OpenServer/domains/portfolio/site/cvresume-web/scss/inside.scss */
+.inside .header .header_heading h1 {
+  font-size: calc(100% + 20px);
+  letter-spacing: 0.002em;
+  margin-bottom: 8px;
+}
+
+/* line 45, D:/OpenServer/domains/portfolio/site/cvresume-web/scss/inside.scss */
+.inside .header .header_heading h2 {
+  width: inherit;
+  margin: 0;
+  letter-spacing: 0.03em;
+  font-size: calc(100% + 5px);
+}
+
+/* line 60, D:/OpenServer/domains/portfolio/site/cvresume-web/scss/inside.scss */
+.inside .main {
+  padding-top: 35px;
+}
+
+/* line 66, D:/OpenServer/domains/portfolio/site/cvresume-web/scss/inside.scss */
+.inside .article_indent {
+  margin: 0 auto 210px auto;
+  min-width: 310px;
+  max-width: 750px;
+  text-align: left;
+}
+
+/* line 73, D:/OpenServer/domains/portfolio/site/cvresume-web/scss/inside.scss */
+.inside .article_indent p {
+  background-color: red;
+  line-height: 1.3;
+  display: inline-block;
+  max-width: 480px;
+  font-size: calc(100% + 2.62pt);
+  letter-spacing: 1.6px;
+  margin: 0 0 20px 0;
+}
+
+/* line 83, D:/OpenServer/domains/portfolio/site/cvresume-web/scss/inside.scss */
+.inside .article_indent:last-child {
+  max-width: 750px;
+  padding-right: 70px;
+}
+
+/* line 87, D:/OpenServer/domains/portfolio/site/cvresume-web/scss/inside.scss */
+.inside .article_indent:last-child p {
+  margin-bottom: 52px;
+}
+
+/* line 91, D:/OpenServer/domains/portfolio/site/cvresume-web/scss/inside.scss */
+.inside .article_indent:last-child p:last-type {
+  margin-bottom: 0px;
+  padding-right: 170px;
+}
