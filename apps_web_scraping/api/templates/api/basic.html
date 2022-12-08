@@ -16,7 +16,8 @@
 <link rel="stylesheet" href="/static/api/css/nulstyle-dist.css" type='text/css'> <!-- Zero style -->
 	<link rel="stylesheet" href="/static/api/css/style-dist.css" type='text/css'> <!-- Common style -->
 	<link rel="stylesheet" href="/static/api/css/screen-style-dist.css" type='text/css'> <!-- media a screen's size style -->
-   
+	<link rel="stylesheet" href="/static/api/css/api.css" type='text/css'> <!-- media a screen's size style -->
+
    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
    	<!--	«IE=EmulateIE8» -->
@@ -34,7 +35,7 @@
 </head>
 
 <body>
-<div>>
+<div>
    <!--- SIDEBAR beginning-->
 		{% block sidebar %}
 		<aside id="sidbar">
@@ -50,7 +51,7 @@
                    {% if single.type_page == 'PARENTS' %}
                      <li class="nav"><a href="/{{ single.slug }}/" >
                         {{ single.title.title|truncatechars:20 }} </a></li>
-                  
+
                   {% endif %}
                {% endfor %}
               <!-- li class="nav"><a href="#" >About Me</a></li>
@@ -90,7 +91,7 @@
 	</main>
 </div>
 <!-- CONTENT completed -->
-	
+
 
 	{% block footer %}
 	<footer>
