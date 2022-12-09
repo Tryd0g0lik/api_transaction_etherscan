@@ -24,7 +24,7 @@ def get_tokenView(request):
 		_records_data_inFiles(user_data_list) #  records data in files
 
 
-		# _read_user_data = _reads_data_files()  #
+		_read_user_data = _reads_data_files()  #
 
 		#  get and send api data
 		api_data = _get_dataApi(token_user, adress_for_search, method_transactions, )

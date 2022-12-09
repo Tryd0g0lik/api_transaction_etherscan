@@ -20,6 +20,7 @@ def _get_dataApi(
 		_api_response = regs.get(api)  #  getting data
 		_api_response = _api_response.json()['result']
 
+
 		if len(_api_response) > 100: #  look the last 100 positions if the list contains more 100 positions
 			return _api_response[-99: ]
 
