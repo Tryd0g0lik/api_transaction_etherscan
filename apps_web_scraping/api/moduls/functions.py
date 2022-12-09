@@ -1,5 +1,4 @@
 from datetime import time
-
 import requests as regs
 from django.utils import dateformat
 
@@ -8,7 +7,7 @@ def _get_dataApi(
 	_token_user: str,
 	_method_transactions: str = None,
 	_startblock: int = 0,
-	):
+	) -> list:
 
 	if _method_transactions == 'None' or\
 		_method_transactions == '':
@@ -100,6 +99,8 @@ def _restart_time() -> bool:
 		if _now_time.second - _start_time.second == 60:
 			_time = False
 			return True
-	return
+	return False
+
+
 
 
