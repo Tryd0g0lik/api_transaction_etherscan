@@ -4,3 +4,5 @@ python-dotenv==0.21.0
 
 requests==2.28.1
 psycopg2-binary==2.9.5
+
+channels["daphne"]==4.0.0
