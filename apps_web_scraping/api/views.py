@@ -30,8 +30,6 @@ def get_tokenView(request):
 		return render(request, 'api/index.html', context={'form': 'True', 'api_header': list(api_header), 'api_data':
 			api_data}, )
 
-
-
 	else:
 		GetTokenOfMainForms()
 		return render(request, 'api/index.html', context={'form': 'None'})
