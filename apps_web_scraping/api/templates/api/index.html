@@ -26,8 +26,9 @@
    <!-- React -->
 
    <section class="experience">
+   
    <h2>Work Experience</h2>
-
+   
     {% if form == 'None' %}
       <div class="experience__left">
         <form  action='/' method="POST">
@@ -52,9 +53,11 @@
            </div>
         </form>
      </div>
-
+  
      {% elif form == 'True' %}
+      <div class="update"><a href="#">Data update?!</a></div>
       <h4>Thanks! We get your datas </h4>
+      
       <div class="api">
 
         <ul>
@@ -71,7 +74,7 @@
 
             </div>
           </li>
-
+         
         {% for dict in api_data %}
           <li>
             <div class="api__header api_value">

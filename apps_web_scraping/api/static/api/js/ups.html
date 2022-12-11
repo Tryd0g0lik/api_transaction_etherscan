@@ -1,0 +1,30 @@
+<section>
+ <ul>
+    <li>
+      <div class="api__header">
+
+        {% for title in api_header %}
+
+          <div >
+            {{ title }}
+          </div>
+          {% endfor %}
+
+      </div>
+    </li>
+   
+  {% for dict in api_data %}
+    <li>
+      <div class="api__header api_value">
+        {% for key, value in dict.items %}
+          <div>
+            {{ value }}
+          </div>
+        {% endfor %}
+      </div>
+    </li>
+  {% endfor %}
+
+  </ul>
+
+</section>

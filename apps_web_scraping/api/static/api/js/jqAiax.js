@@ -1,38 +1,26 @@
-let url = 'https://api-goerli.etherscan.io/api';
-let data={
-   module:'account',
-	action:'txlist',
-	address:'0x118ee078c3625144e3a942566fbc84f187f8c8b6',
-	startblock:'5',
-	endblock:'99999999',
-	page:'1',
-	offset:'10',
-	sort:'asc',
-	apikey:'5PNDPQY793WFZ3HMK9TC8MNYXI888P84AK'
-];
 
-//$.ajax({
-//    url: 'apps_web_scraping/api/files/api_data.json',
-//    dataType: 'json',
-//    success: function (data) {
-//        callBack(data);    // Обрабатываю данные, генерирую таблицу
-//    }
-//});
+$(document).ready(function(){
+	$('.update').click( function(){
+	$.getJSON( "static/api/json/api_data.json",  function( data ) {
 
-//function respone(){
-//	console.logo(
-//		echo '111111111 TRue'
-//	)
-//}
+	let apiHtml = '';
+  let heders = '<li><div class="api__header"> <div>blockNumber</div><div>timeStamp</div><div>hash</div><div>from</div><div>to</div><div>value</div><div>contractAddress</div><div>input</div><div>type</div><div>gas</div><div>gasUsed</div><div>traceId</div><div>isError</div><div>errCode</div></div></li>';
 
-let httpRequest = new XMLHttpRequest();
-httpRequest.open(
-	'GET',
-	url + '?'+ data,
-	true
-);
-httpRequest.send(null);
+	for (let el = 0; el <= (data.response).length; el++ ){
 
-if (httpRequest.status == 200) {
-    // великолепно!
-}
+		apiHtml += '<li><div class="api__header FFF api_value">';
+		$.each( data.response[el], function( key, val ) {
+
+			apiHtml += '<div>' + val + '</div>'
+
+		  });
+		  apiHtml += ' </div></li>';
+      }
+		heders = '<ul>' + heders + apiHtml + '</ul>'
+		$('.api').html(heders);
+		});
+		return false
+
+	});
+
+});

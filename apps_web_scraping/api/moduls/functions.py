@@ -35,15 +35,15 @@ def get_dataApi(*args, _startblock: int = 0) -> list:
 		      % (  _token_user, _startblock, _adress_for_search,)
 
 		_api_response = regs.get(api)  #  getting data
-		_api_response = _api_response.json()['result']
+		_api_response = {'response' : _api_response.json()['result']}
 
-		with open('apps_web_scraping/api/files/api_data.json', 'w') as write_file:
+		with open('apps_web_scraping/api/static/api/json/api_data.json', 'w') as write_file:
 			json.dump(_api_response, write_file)
 
 		if len(_api_response) > 100: #  look the last 100 positions if the list contains more 100 positions
-			return _api_response[-99: ]
+			return _api_response['response'][-99: ]
 
-		return _api_response
+		return _api_response['response']
 
 	else:
 		...
